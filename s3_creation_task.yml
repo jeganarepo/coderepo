@@ -9,7 +9,8 @@ inputs:
   - name: repo_dir
 
 run:
-  path: pwd
+  path: find
+  args: [.]
   #args: [./repo_dir/scripts/run-terraform]
 
 params:
