@@ -9,8 +9,8 @@ inputs:
   - name: repo_dir
 
 run:
-  path: sh
-  args: [./repo_dir/scripts/run-terraform]
+  path: pwd
+  #args: [./repo_dir/scripts/run-terraform]
 
 params:
   AWS_ACCESS_KEY_ID:
