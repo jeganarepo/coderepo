@@ -1,0 +1,18 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source: {repository: hashicorp/terraform}
+
+inputs:
+  - name: repo_dir
+
+run:
+  path: sh
+  args: [./repo_dir/scripts/run-terraform]
+
+params:
+  AWS_ACCESS_KEY_ID:
+  AWS_SECRET_ACCESS_KEY: 
+  AWS_SESSION_TOKEN:
