@@ -13,12 +13,12 @@ variable "libraries" {
   description = "List of objects needed to create vSphere content libraries"
   default = [
     { 
-      s3_bucket_name         = "vsp-content-prod"   
+      s3_bucket_name         = "vsp1-content-prod"   
       ip_set_descriptor_cidr = ["10.0.0.0/8"]
 
     },
     {
-      s3_bucket_name         = "vsp-content-dev"
+      s3_bucket_name         = "vsp2-content-dev"
       ip_set_descriptor_cidr = ["172.31.16.0/20"]
     }
   ]
