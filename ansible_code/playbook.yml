@@ -1,6 +1,9 @@
- 
 ---
 - hosts: "{{ server }}"
   tasks:
-    - name: Get server infor
-      setup:  
+    - name: Get server facts
+      setup:
+      register: facts_out
+ 
+    - debug: 
+        msg: "{{ facts_out.ansible_facts.ansible_hostname }}"
