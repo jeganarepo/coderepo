@@ -1,26 +1,16 @@
-name: 03 Parallel Jobs
+name: Check out code
 
 on:
   workflow_dispatch:  # This event triggers the workflow manually
 
 jobs:
-  linting:
+  checkout-code:
     runs-on: ubuntu-latest
     steps:
-      - name: Linting
-        run: echo "Running linting..."
-
-  unit_tests:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Unit Tests
-        run: echo "Running unit tests..."
-
-  integration_tests:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set Up Test Environment
-        run: echo "Setting up test environment..."
-
-      - name: Integration Tests
-        run: echo "Running integration tests..."
+      - name: List the git workspace
+        run: ls -la "${{github.workspace}}"
+      - name: List the repo content 
+        uses: actions/checkout@v4
+      - name: List the git workspace after checkout
+        run: ls -la "${{github.workspace}}"
+        
