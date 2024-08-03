@@ -16,6 +16,7 @@ jobs:
         
   another_job:
     runs-on: ubuntu-latest
+    needs: checkout-code
     steps:
       - name: List the git workspace
         run: ls -la "${{github.workspace}}"
