@@ -14,3 +14,8 @@ jobs:
       - name: List the git workspace after checkout
         run: ls -la "${{github.workspace}}"
         
+  another_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List the git workspace
+        run: ls -la "${{github.workspace}}"
