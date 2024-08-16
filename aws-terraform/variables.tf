@@ -72,3 +72,12 @@ variable "inbound_rules" {
   }))
   default = []
 }
+
+##################
+# ALB            #
+##################
+variable "alb_name" {
+    description = "The name of the ALB"
+    type        = string
+    default     = ""
+}
