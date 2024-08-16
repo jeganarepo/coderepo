@@ -23,7 +23,7 @@ variable "subnet_id" {
 variable "associate_public_ip_address" {
   description = "Whether to associate a public IP address with an instance in a VPC"
   type        = bool
-  default     = ""
+  default     = "true"
 }
 
 variable "vpc_security_group_ids" {

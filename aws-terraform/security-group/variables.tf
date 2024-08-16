@@ -9,7 +9,7 @@ variable "security_group_name" {
 }
 
 variable "vpc_id" {
-    description = "value" = "The id of the VPC"
+    description = "The id of the VPC"
     type        = string
     default     = ""
   
