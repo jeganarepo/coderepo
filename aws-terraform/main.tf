@@ -14,6 +14,7 @@ module "security_group" {
   security_group_name = var.security_group_name
   vpc_id              = module.vpc.vpc_id
   inbound_rules       = var.inbound_rules
+  outbound_rules      = var.outbound_rules
 }
 
 module "ec2" {
