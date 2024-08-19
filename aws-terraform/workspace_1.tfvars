@@ -14,6 +14,7 @@ vpc_cidr      = "10.16.0.0/16"
 ##############################
 ami_id = "ami-04a81a99f5ec58529"
 user_data_script_name = "jenkins_setup_ubuntu.sh"
+
 ####################################
 # Security Group module defaults   #
 ####################################
@@ -24,5 +25,19 @@ inbound_rules = [
     to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+  },
+  {
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
- ]
+]
+outbound_rules = [
+  {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+]
