@@ -39,7 +39,7 @@ variable "alb_target_group_name" {
 variable "alb_target_port" {
     description = "The alb target port"
     type = string
-    default = "80"
+    default = "8080"
   
 }
 
@@ -59,5 +59,5 @@ variable "alb_ec2_instance_id" {
 variable "alb_ec2_target_port" {
     description = "The EC2 instance target port"
     type        = string
-    default     = "80"
+    default     = "8080"
 }

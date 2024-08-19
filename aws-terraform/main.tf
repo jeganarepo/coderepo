@@ -1,3 +1,4 @@
+
 provider "aws" {
   region = var.region
 }
@@ -22,12 +23,14 @@ module "ec2" {
   vpc_security_group_ids = [module.security_group.security_group_ids]
 }
 
+/*
 module "alb" {
-  source = "./ALB"
+  source = "./alb"
   alb_name = "${var.resource_name}-alb"
-  alb_security_group = module.security_group.security_group_ids
-  alb_subnets = tolist(module.vpc.public_subnet_id)[0]
+  alb_security_group = [module.security_group.security_group_ids]
+  alb_subnets = [module.vpc.public_subnet_id][0]
   alb_vpc_id = module.vpc.vpc_id
   alb_ec2_instance_id = module.ec2.ec2_instance_id
 
 }  
+*/

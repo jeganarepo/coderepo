@@ -33,8 +33,15 @@ variable "vpc_security_group_ids" {
 }
 
 
-variable "user_data" {
-  description = "The user data to provide when launching the instance"
+variable "user_data_script_name" {
+  description = "The user data script name to provide when launching the instance"
   type        = string
   default     = ""
 }
+
+variable "ec_ssh_pub_key_name" {
+  description = "The ssh public key name"
+  type = string
+  default = "ec2-pub-key"
+}
+
