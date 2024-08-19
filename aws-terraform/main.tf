@@ -21,6 +21,7 @@ module "ec2" {
   ami_id    = var.ami_id
   subnet_id = tolist(module.vpc.public_subnet_id)[0]
   vpc_security_group_ids = [module.security_group.security_group_ids]
+  user_data_script_name = var.user_data_script_name
 }
 
 /*

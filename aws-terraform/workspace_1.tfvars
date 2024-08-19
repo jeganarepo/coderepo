@@ -12,8 +12,8 @@ vpc_cidr      = "10.16.0.0/16"
 ##############################
 # EC2 module defaults        #
 ##############################
-ami_id = "ami-0aff18ec83b712f05"
-
+ami_id = "ami-04a81a99f5ec58529"
+user_data_script_name = "jenkins_setup_ubuntu.sh"
 ####################################
 # Security Group module defaults   #
 ####################################

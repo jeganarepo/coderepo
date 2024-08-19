@@ -39,7 +39,7 @@ variable "user_data_script_name" {
   default     = ""
 }
 
-variable "ec_ssh_pub_key_name" {
+variable "ec2_ssh_pub_key_name" {
   description = "The ssh public key name"
   type = string
   default = "ec2-pub-key"

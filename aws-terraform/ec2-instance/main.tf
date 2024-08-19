@@ -10,5 +10,7 @@ resource "aws_instance" "this" {
 
 resource "aws_key_pair" "privatestorage" {
   key_name   = var.ec2_ssh_pub_key_name
-  public_key = file("${path.home}/.ssh/${var.ec2_ssh_pub_key_name}")
+  public_key = file("${path.root}/.ssh/${var.ec2_ssh_pub_key_name}")
 }
+
+
