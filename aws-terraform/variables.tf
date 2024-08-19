@@ -73,6 +73,16 @@ variable "inbound_rules" {
   default = []
 }
 
+variable "outbound_rules" {
+  description = "A list of outbound security group rules"
+  type = list(object({
+    from_port   = number
+    to_port     = number
+    protocol    = string
+    cidr_blocks = list(string)
+  }))
+  default = []
+}
 ##################
 # ALB            #
 ##################
