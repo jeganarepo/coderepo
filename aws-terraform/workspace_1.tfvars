@@ -41,3 +41,9 @@ outbound_rules = [
     cidr_blocks = ["0.0.0.0/0"]
   }
 ]
+
+#####################
+# ALB target group  #
+#####################
+alb_target_port = 8080
+alb_ec2_target_port = 8080

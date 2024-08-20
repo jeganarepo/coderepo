@@ -4,7 +4,7 @@ resource "aws_lb_target_group" "this" {
   protocol = var.alb_target_portocol
   vpc_id   = var.alb_vpc_id
   health_check {
-    path = "/"
+    path = "/login"
     port = 8080
     healthy_threshold = 6
     unhealthy_threshold = 2

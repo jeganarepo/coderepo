@@ -25,14 +25,12 @@ module "ec2" {
   user_data_script_name = var.user_data_script_name
 }
 
-/*
 module "alb" {
-  source = "./alb"
-  alb_name = "${var.resource_name}-alb"
-  alb_security_group = [module.security_group.security_group_ids]
-  alb_subnets = [module.vpc.public_subnet_id][0]
-  alb_vpc_id = module.vpc.vpc_id
-  alb_ec2_instance_id = module.ec2.ec2_instance_id
-
-}  
-*/
+  source                = "./alb"
+  alb_name              = "${var.resource_name}-alb"
+  alb_target_group_name = "${var.resource_name}-alb-tg"
+  alb_security_group    = [module.security_group.security_group_ingress]
+  alb_subnets           = [module.vpc.public_subnet_id][0]
+  alb_vpc_id            = module.vpc.vpc_id
+  alb_ec2_instance_id   = module.ec2.ec2_instance_id
+}

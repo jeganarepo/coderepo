@@ -91,3 +91,25 @@ variable "alb_name" {
     type        = string
     default     = ""
 }
+
+#####################
+# ALB target group  #
+#####################
+variable "alb_target_group_name" {
+    description = "The name of the alb target group"
+    type        = string
+    default     = ""  
+}
+
+variable "alb_target_port" {
+    description = "The alb target port"
+    type = string
+    default = ""
+  
+}
+
+variable "alb_ec2_target_port" {
+    description = "The EC2 instance target port"
+    type        = string
+    default     = ""
+}
