@@ -36,11 +36,11 @@ module "alb" {
   alb_ec2_instance_id   = module.ec2.ec2_instance_id
   alb_ec2_target_port   = var.alb_ec2_target_port
   alb_health_check      = {
-    path                = var.health_check["path"]
-    port                = var.health_check["port"]
-    healthy_threshold   = var.health_check["healthy_threshold"]
-    unhealthy_threshold = var.health_check["unhealthy_threshold"]
-    timeout             = var.health_check["timeout"]
-    interval            = var.health_check["interval"]
+    path                = var.alb_health_check["path"]
+    port                = var.alb_health_check["port"]
+    healthy_threshold   = var.alb_health_check["healthy_threshold"]
+    unhealthy_threshold = var.alb_health_check["unhealthy_threshold"]
+    timeout             = var.alb_health_check["timeout"]
+    interval            = var.alb_health_check["interval"]
   }
 }
