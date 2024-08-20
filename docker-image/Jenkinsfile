@@ -1,7 +1,7 @@
 pipeline {
     environment {
-        dockerrepo = "jegandocker/demonginx"
-        dockerHubCredentials = 'dockerlogin'
+        dockerrepo           = "jegandocker/demonginx"
+        dockerHubCredentialsId = 'dockerlogin'
     }
  
     agent any
@@ -10,6 +10,20 @@ pipeline {
         stage('Cloning Git') {
             steps {
                 git([url: 'https://github.com/jeganarepo/coderepo', branch: 'main'])
+            }
+        }
+        stage('Docker Build') {
+            steps {
+                sh 'cd docker-image'
+                sh 'docker build -t ${dockerrepo} .'
+            }
+        }
+        stage('Docker Push') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: env.dockerHubCredentialsId, passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+                sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+                sh 'docker push shanem/spring-petclinic:latest'
+                }
             }
         }
     } 
