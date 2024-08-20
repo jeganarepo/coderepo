@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                sh 'cd docker-image'
+                sh 'cd docker-image; pwd; ls -l'
                 sh 'docker build -t ${dockerrepo} .'
             }
         }
