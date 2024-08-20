@@ -1,7 +1,7 @@
 ##############################
 # AWS region                 #
 ##############################
-region        = "us-east-1"
+region = "us-east-1"
 
 ##############################
 # VPC module defaults        #
@@ -12,7 +12,8 @@ vpc_cidr      = "10.16.0.0/16"
 ##############################
 # EC2 module defaults        #
 ##############################
-ami_id = "ami-04a81a99f5ec58529"
+ami_id                = "ami-04a81a99f5ec58529"
+instance_type         = "t2.micro"
 user_data_script_name = "jenkins_setup_ubuntu.sh"
 
 ####################################
@@ -31,7 +32,14 @@ inbound_rules = [
     to_port     = 8080
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+  },
+  {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
+
 ]
 outbound_rules = [
   {
@@ -45,5 +53,12 @@ outbound_rules = [
 #####################
 # ALB target group  #
 #####################
-alb_target_port = 8080
 alb_ec2_target_port = 8080
+alb_health_check = {
+  path                = "/login"
+  port                = 8080
+  healthy_threshold   = 5
+  unhealthy_threshold = 2
+  timeout             = 2
+  interval            = 5
+}

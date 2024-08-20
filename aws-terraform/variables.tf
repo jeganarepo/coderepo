@@ -32,6 +32,12 @@ variable "ami_id" {
     default     = ""
 }
 
+variable "instance_type" {
+    description = "AWS instance type"
+    type = string
+    default = ""
+}
+
 variable "subnet_id" {
     description = "The id of the VPC subnet"
     type        = string
@@ -101,15 +107,22 @@ variable "alb_target_group_name" {
     default     = ""  
 }
 
-variable "alb_target_port" {
-    description = "The alb target port"
+variable "alb_ec2_target_port" {
+    description = "The alb and ec2 target port"
     type = string
     default = ""
   
 }
 
-variable "alb_ec2_target_port" {
-    description = "The EC2 instance target port"
-    type        = string
-    default     = ""
+variable "alb_health_check" {
+  description = "A map containing health check configuration parameters."
+  type        = map(any)
+  default = {
+    path                = ""   
+    port                = ""
+    healthy_threshold   = ""  
+    unhealthy_threshold = ""  
+    timeout             = ""   
+    interval            = ""   
+  }
 }

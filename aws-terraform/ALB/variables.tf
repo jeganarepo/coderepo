@@ -36,17 +36,17 @@ variable "alb_target_group_name" {
     default     = ""  
 } 
 
-variable "alb_target_port" {
+variable "alb_ec2_target_port" {
     description = "The alb target port"
-    type = string
-    default = ""
+    type        = string
+    default     = ""
   
 }
 
 variable "alb_target_portocol" {
     description = "The alb target protocol"
-    type = string
-    default = "HTTP"
+    type        = string
+    default     = "HTTP"
 }
 
 
@@ -56,8 +56,8 @@ variable "alb_ec2_instance_id" {
     default     = ""
 }
 
-variable "alb_ec2_target_port" {
-    description = "The EC2 instance target port"
-    type        = string
-    default     = ""
+variable "alb_health_check" {
+  description = "A map containing health check configuration parameters."
+  type        = map(any)
+  default = {}
 }

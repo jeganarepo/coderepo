@@ -1,15 +1,15 @@
 resource "aws_lb_target_group" "this" {
   name     = var.alb_target_group_name
-  port     = var.alb_target_port
+  port     = var.alb_ec2_target_port
   protocol = var.alb_target_portocol
   vpc_id   = var.alb_vpc_id
   health_check {
-    path = "/login"
-    port = 8080
-    healthy_threshold = 6
-    unhealthy_threshold = 2
-    timeout = 2
-    interval = 5
+    path                = var.alb_health_check["path"]
+    port                = var.alb_health_check["port"]
+    healthy_threshold   = var.alb_health_check["healthy_threshold"]
+    unhealthy_threshold = var.alb_health_check["unhealthy_threshold"]
+    timeout             = var.alb_health_check["timeout"]
+    interval            = var.alb_health_check["interval"]
   }
 }
 

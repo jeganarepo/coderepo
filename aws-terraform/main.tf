@@ -18,11 +18,12 @@ module "security_group" {
 }
 
 module "ec2" {
-  source    = "./ec2-instance"
-  ami_id    = var.ami_id
-  subnet_id = tolist(module.vpc.public_subnet_id)[0]
+  source                 = "./ec2-instance"
+  ami_id                 = var.ami_id
+  instance_type          = var.instance_type
+  subnet_id              = tolist(module.vpc.public_subnet_id)[0]
   vpc_security_group_ids = [module.security_group.security_group_ids]
-  user_data_script_name = var.user_data_script_name
+  user_data_script_name  = var.user_data_script_name
 }
 
 module "alb" {
@@ -34,5 +35,12 @@ module "alb" {
   alb_vpc_id            = module.vpc.vpc_id
   alb_ec2_instance_id   = module.ec2.ec2_instance_id
   alb_ec2_target_port   = var.alb_ec2_target_port
-  alb_target_port       = var.alb_target_port
+  alb_health_check      = {
+    path                = var.health_check["path"]
+    port                = var.health_check["port"]
+    healthy_threshold   = var.health_check["healthy_threshold"]
+    unhealthy_threshold = var.health_check["unhealthy_threshold"]
+    timeout             = var.health_check["timeout"]
+    interval            = var.health_check["interval"]
+  }
 }
