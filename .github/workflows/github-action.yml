@@ -20,7 +20,7 @@ jobs:
           format: json
           output-file: hadolint.json
       - name: List repo  
-        run: ls -la "${{github.workspace}}"
+        run: cat "${{github.workspace}}"/hadolint.json
       - name: Upload results
         uses: actions/upload-artifact@v4
         with:
