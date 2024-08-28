@@ -20,7 +20,8 @@ jobs:
           verbose: true 
           output-file: ${{ github.workspace }}/lint-out.json
 
-      - name: Upload results
+      - name: Upload 
+        if: always() 
         uses: actions/upload-artifact@v4
         with:
           name: lint-out
