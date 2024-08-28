@@ -18,6 +18,7 @@ jobs:
           dockerfile: docker-image/Dockerfile
           format: json
           verbose: true 
+          output-file: ${{ github.workspace }}/lint-out.json
 
         
       
