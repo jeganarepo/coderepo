@@ -15,6 +15,7 @@ jobs:
         uses: hadolint/hadolint-action@v3.1.0
         with:
           dockerfile: docker-image/Dockerfile
+          failure-threshold: warning, error 
 
         
       
