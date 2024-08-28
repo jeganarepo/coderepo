@@ -15,7 +15,7 @@ jobs:
       - name: Run lint
         uses: hadolint/hadolint-action@v3.1.0
         with:
-          dockerfile: Dockerfile
+          dockerfile: docker-image/Dockerfile
           format: json
           verbose: true 
 
