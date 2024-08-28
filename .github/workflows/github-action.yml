@@ -15,6 +15,8 @@ jobs:
         uses: hadolint/hadolint-action@v3.1.0
         with:
           dockerfile: docker-image/Dockerfile
+          format: json
+          verbose: true
           failure-threshold: warning, error 
 
         
