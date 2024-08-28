@@ -18,9 +18,7 @@ jobs:
           dockerfile: docker-image/Dockerfile
           format: json
           verbose: true 
-          output-file: ${{ github.workspace }}/lint-out.json
-      - name: cat the output file
-        run: cat /github/workspace/lint-out.json
+         
 
         
       
