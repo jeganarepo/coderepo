@@ -15,9 +15,9 @@ jobs:
       - name: Run lint
         uses: hadolint/hadolint-action@v3.1.0
         with:
-          dockerfile: docker-image/Dockerfile
+          dockerfile: ${{github.workspace}}/docker-image/Dockerfile
           format: json
-          output-file: hadolint.json
+          output-file: ${{github.workspace}}/hadolint.json
           
       - name: List repo  
         run: cat ${{github.workspace}}/hadolint.json
@@ -25,7 +25,7 @@ jobs:
       - name: Upload results
         uses: actions/upload-artifact@v4
         with:
-          name: hadolint-results
+          name: hadolint
           path: ${{ github.workspace }}/hadolint.json       
 
         
