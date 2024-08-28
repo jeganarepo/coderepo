@@ -17,6 +17,7 @@ jobs:
           dockerfile: docker-image/Dockerfile
           format: json
           verbose: true
+          output-file: ${{ github.workspace }}/hadolint.json
           failure-threshold: warning, error 
 
         
