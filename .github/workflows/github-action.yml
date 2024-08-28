@@ -21,7 +21,7 @@ jobs:
           output-file: ${{ github.workspace }}/lint-out.json
 
       - name: Upload results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: lint-out
           path: ${{ github.workspace }}/lint-out.json      
