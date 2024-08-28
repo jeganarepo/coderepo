@@ -11,17 +11,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: List repo  
-        run: cd ${{github.workspace}}/docker-image
         
       - name: Run lint
         uses: hadolint/hadolint-action@v3.1.0
         with:
-          dockerfile: ./Dockerfile
+          dockerfile: docker-image/Dockerfile
           format: json
           output-file: hadolint.json
+          
       - name: List repo  
         run: cat ${{github.workspace}}/hadolint.json
+        
       - name: Upload results
         uses: actions/upload-artifact@v4
         with:
