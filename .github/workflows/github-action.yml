@@ -15,9 +15,9 @@ jobs:
       - name: Run lint
         uses: hadolint/hadolint-action@v3.1.0
         with:
-          dockerfile: ${{github.workspace}}/docker-image/Dockerfile
+          dockerfile: Dockerfile
           format: json
-          output-file: ${{github.workspace}}/hadolint.json
+          output-file: ${{github.workspace}}hadolint.json
           
       - name: List repo  
         run: cat ${{github.workspace}}/hadolint.json
