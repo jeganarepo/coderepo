@@ -12,7 +12,7 @@ jobs:
       - name: Checkout cpde
         uses: actions/checkout@v4
       - name: Run lint
-        uses: hadolint/hadolint-action@v2
+        uses: hadolint/hadolint-action@v3.1.0
         with:
           dockerfile: docker-image/Dockerfile
 
