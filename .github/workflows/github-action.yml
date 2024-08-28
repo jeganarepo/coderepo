@@ -9,18 +9,20 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout cpde
+      - name: Checkout code
         uses: actions/checkout@v4
+      - name: List repo  
+        run: ls -la "${{github.workspace}}"
       - name: Run lint
         uses: hadolint/hadolint-action@v3.1.0
         with:
           dockerfile: docker-image/Dockerfile
           format: json
-          verbose: true
           output-file: hadolint.json
-          failure-threshold: warning, error 
+      - name: List repo  
+        run: ls -la "${{github.workspace}}"
       - name: Upload results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: hadolint-results
           path: ${{ github.workspace }}/hadolint.json       
