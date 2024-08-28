@@ -17,8 +17,13 @@ jobs:
           dockerfile: docker-image/Dockerfile
           format: json
           verbose: true
-          output-file: ${{ github.workspace }}/hadolint.json
+          output-file: hadolint.json
           failure-threshold: warning, error 
+      - name: Upload results
+        uses: actions/upload-artifact@v3
+        with:
+          name: hadolint-results
+          path: ${{ github.workspace }}/hadolint.json       
 
         
       
