@@ -1,5 +1,5 @@
 # Golang base image version
-FROM golang:1.22-alpine
+FROM golang:latest
 
 # Set the working 
 WORKDIR /app
