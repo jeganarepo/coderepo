@@ -1,0 +1,10 @@
+services:
+  golang-web:
+    image: golang-web-image
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        ENVIRONMENT:
+    ports:
+      - "80:8080"
