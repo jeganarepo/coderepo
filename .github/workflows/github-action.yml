@@ -1,0 +1,32 @@
+name: Docker github action
+
+on:
+  workflow_dispatch:  # This event triggers the workflow manually
+env:
+  DOCKER_HUB_USERNAME: jegandocker
+  IMAGE_NAME: nginx-demo
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Run lint
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: docker-image/Dockerfile
+          format: json
+          verbose: true 
+          output-file: ${{ github.workspace }}/lint-out.json
+
+      - name: Upload 
+        if: always() 
+        uses: actions/upload-artifact@v4
+        with:
+          name: lint-out
+          path: ${{ github.workspace }}/lint-out.json      
+         
+
+        
+      
