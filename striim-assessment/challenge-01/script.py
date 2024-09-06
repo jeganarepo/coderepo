@@ -1,6 +1,3 @@
-# pip3 install pandas openpyxl
-# https://medium.com/womenintechnology/different-ways-to-compare-two-columns-from-two-different-files-using-pandas-be7ff315ab17
-
 #!/usr/bin/python3
 
 """
