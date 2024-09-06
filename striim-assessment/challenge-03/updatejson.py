@@ -69,7 +69,3 @@ if __name__ == "__main__":
     args = parser.parse_args()
      
     update_json_file(args.env, args.json, args.csv)
-
-
-ENV,host,port,dbname,user,password
-PROD,192.168.0.1,222,rpoot,admin,newpassword123
